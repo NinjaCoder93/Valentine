@@ -1,0 +1,237 @@
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.game-back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  z-index: 20;
+}
+
+.game-back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+.game-stats {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  z-index: 15;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.stat .label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat .value {
+  font-size: 2rem;
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+.stat .value.warning {
+  color: #ffff00;
+  font-size: 2.2rem;
+}
+
+.game-area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.instruction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.heart-item {
+  position: absolute;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  user-select: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.heart-item:hover {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+}
+
+.heart-item:active {
+  transform: scale(0.8);
+}
+
+/* Game Over Screen */
+.game-over-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  backdrop-filter: blur(5px);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.game-over-screen h2 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.final-score {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.score-display {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ffff00;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.hearts-caught {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 10px;
+}
+
+.game-messages {
+  text-align: center;
+  margin: 30px 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-messages p {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 1.6;
+  animation: slideIn 0.6s ease-out 0.2s both;
+}
+
+.play-again-btn {
+  padding: 18px 50px;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+  margin-top: 30px;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.play-again-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+}
+
+.play-again-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .game-stats {
+    gap: 20px;
+    padding: 15px 25px;
+    right: 15px;
+    top: 15px;
+  }
+
+  .stat .value {
+    font-size: 1.5rem;
+  }
+
+  .instruction {
+    font-size: 1.5rem;
+  }
+
+  .heart-item {
+    font-size: 2.5rem;
+  }
+
+  .heart-item:hover {
+    font-size: 3rem;
+  }
+
+  .game-over-screen h2 {
+    font-size: 2rem;
+  }
+
+  .score-display {
+    font-size: 3.5rem;
+  }
+
+  .game-messages p {
+    font-size: 1.2rem;
+  }
+
+  .play-again-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+  }
+}
